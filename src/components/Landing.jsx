@@ -1,23 +1,12 @@
-import React from "react";
-
-import Alert from "./Alert/Alert";
-import Button from "./Button/Button";
-import Navbar from "./Navbar/Navbar";
+import React from "react"
 
 const Landing = () => {
     return (
-        <>
-            <Navbar/>
-            <div style={{padding: 30}}>
-                <Button buttonName="Aceptar" isUsedBootstrap={true} />
-                <Button buttonName="Eliminar" isUsedBootstrap={false} styleCondition={true} />
-            </div>  
-
-            <div>
-                <Alert />
-            </div>
-
-        </>
+        <div style={{textAlign: "center"}}>
+            <img src="../img/logo.png" alt="logo" />
+            <h1>Bienvenidos a MDQCaps</h1>
+            <p>Buscador de Productos</p>
+        </div>
     )
 }
 
