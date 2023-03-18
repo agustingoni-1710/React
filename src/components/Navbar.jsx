@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"
 
 const Navbar = (props) => {
 
@@ -30,6 +31,9 @@ const Navbar = (props) => {
                     <input type="text" value={value} onChange={handleChange} />
                     <button type="submit">Buscar</button>
                 </form>
+            </div>
+            <div style={{ float: "right"}}>
+                <Link to="/about">Sobre nosotros</Link>
             </div>
         </nav>
         

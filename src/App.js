@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react'
 
+import { BrowserRouter } from "react-router-dom"
+import AppRoutes from "./AppRoutes";
 
 
-import Landing from './components/Landing'
-import Navbar from './components/Navbar/Navbar'
-import Results from './components/Results/Results'
+import Landing from './components/Landing';
+import Navbar from './components/Navbar';
+import Results from './components/Results';
 
 function App() {
     const [search, setSearch] = useState("")
@@ -27,13 +29,13 @@ function App() {
     
     return(
         <div>
-            
+          <BrowserRouter> 
               <Landing/> 
               <Navbar setSearch={setSearch}/>
               <Results results={results}/>
             
-
-
+              <AppRoutes />
+            </BrowserRouter> 
         </div>
     )
 }
