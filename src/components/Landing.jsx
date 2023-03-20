@@ -1,12 +1,12 @@
 import React from "react"
-import { link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const Landing = () => {
     return (
         <div style={{textAlign: "center"}}>
-            <link to="/">
+            <Link>
                 <img src="/public/img/logo.png" alt="logo" />
-            </link>
+            </Link>
             <h1>Bienvenidos a MDQCaps</h1>
             <p>Buscador de Productos</p>
         </div>

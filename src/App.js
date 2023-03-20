@@ -1,7 +1,8 @@
+/* eslint-disable eqeqeq */
 import React, {useState, useEffect} from 'react'
 
-import { BrowserRouter } from "react-router-dom"
-import AppRoutes from "./AppRoutes";
+ import { BrowserRouter } from "react-router-dom" 
+ import AppRoutes from "./AppRoutes"; 
 
 
 import Landing from './components/Landing';
@@ -10,12 +11,12 @@ import Results from './components/Results';
 
 function App() {
     const [search, setSearch] = useState("")
-    const [results, setResults] = useState()
+    const [results, setResults] = useState([])
     
     useEffect(() => {
-      if(search !== "") {
+      if(search != "") {
         
-        fetch(`https://api.mercadolivre.com/sites/MLA/search?q=${search}`)
+        fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${search}`)
         .then((res) => res.json())
         .then((data) => setResults(data.results))
 
@@ -37,7 +38,7 @@ function App() {
               <AppRoutes />
             </BrowserRouter> 
         </div>
-    )
+    );
 }
 
-export default App
+export default App;
