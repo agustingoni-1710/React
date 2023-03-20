@@ -1,4 +1,4 @@
-/* eslint-disable eqeqeq */
+
 import React, {useState, useEffect} from 'react'
 
  import { BrowserRouter } from "react-router-dom" 
@@ -14,7 +14,7 @@ function App() {
     const [results, setResults] = useState([])
     
     useEffect(() => {
-      if(search != "") {
+      if(search !== "") {
         
         fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${search}`)
         .then((res) => res.json())
