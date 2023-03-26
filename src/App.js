@@ -1,44 +1,27 @@
 
-import React, {useState, useEffect} from 'react'
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 
- import { BrowserRouter } from "react-router-dom" 
- import AppRoutes from "./AppRoutes"; 
-
-
-import Landing from './components/Landing';
-import Navbar from './components/Navbar';
-import Results from './components/Results';
+import Home from "./components/Landing";
+import ItemDetail from "./components/ItemDetail";
+import NavbarPage from "./components/Navbar";
+import CartProvider from "./Context/CartContext";
 
 function App() {
-    const [search, setSearch] = useState("")
-    const [results, setResults] = useState([])
-    
-    useEffect(() => {
-      if(search !== "") {
-        
-        fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${search}`)
-        .then((res) => res.json())
-        .then((data) => setResults(data.results))
 
-      }
-    
-      
-    }, [search])
-    
-    
-   
-    
-    return(
-        <div>
-          <BrowserRouter> 
-              <Landing/> 
-              <Navbar setSearch={setSearch}/>
-              <Results results={results}/>
-            
-              <AppRoutes />
-            </BrowserRouter> 
-        </div>
-    );
+  return (
+    <CartProvider>
+      <BrowserRouter>
+
+        <NavbarPage />
+        
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/item/:itemId" element={<ItemDetail />} />
+        </Routes>
+
+      </BrowserRouter>
+    </CartProvider>
+  );
 }
 
 export default App;
