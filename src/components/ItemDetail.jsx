@@ -1,12 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { useParams } from 'react-router';
 import { CartContext } from '../Context/CartContext';
+import { collection, getDocs, getFirestore, query, where} from 'firebase/firestore'
 
 const ItemDetail = () => {
 
   const { itemId } = useParams()
 
   const { addToCart, removeFromCart } = useContext(CartContext)
+
+  const [items, setItems] = useState();
   
   
   
@@ -24,7 +27,7 @@ const ItemDetail = () => {
       }
       setItems(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data()})))
     })
-  }
+  
   
   const selectItem = items.find(product => product.id === itemId)
 
@@ -47,7 +50,7 @@ const ItemDetail = () => {
         height: '25px'
         }} onClick={() => removeFromCart(selectItem.id)}>X</button>
     </div>
-  );
+  )}
 
 
 export default ItemDetail
