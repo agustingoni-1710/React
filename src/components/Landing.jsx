@@ -27,7 +27,7 @@ const Landing = () => {
     })
   }, [])
 
- console.log(items);
+ /* console.log(items); */
 
   return (
     <div>
