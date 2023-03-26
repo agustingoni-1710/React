@@ -7,29 +7,26 @@ const ItemDetail = () => {
   const { itemId } = useParams()
 
   const { addToCart, removeFromCart } = useContext(CartContext)
+  const [items, setItems] = useState();
+  
+  
+  const db = getFirestore()
 
-  const products = [
-    {
-      id: 1,
-      name: 'Producto 1',
-      price: 10,
-      description: 'Descripción del producto 1'
-    },
-    {
-      id: 2,
-      name: 'Producto 2',
-      price: 20,
-      description: 'Descripción del producto 2'
-    },
-    {
-      id: 3,
-      name: 'Producto 3',
-      price: 30,
-      description: 'Descripción del producto 3'
-    }
-  ];
+    const caps = query(
+      collection(db, 'items'),
+      where('Stock', '>=', 1), 
+      where ('Categoria','==','Snapback NBA')
+    )
 
-  const selectItem = products.find(product => product.id === itemId)
+    getDocs(caps).then((snapshot) => {
+      if(snapshot === 0){
+        console.log("No hay resultados")
+      }
+      setItems(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data()})))
+    })
+  }
+  
+  const selectItem = itemId.find(product => product.id === itemId)
 
 
   return (
@@ -51,6 +48,6 @@ const ItemDetail = () => {
         }} onClick={() => removeFromCart(selectItem.id)}>X</button>
     </div>
   );
-}
+
 
 export default ItemDetail
