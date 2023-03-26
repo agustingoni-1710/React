@@ -7,7 +7,7 @@ const ItemDetail = () => {
   const { itemId } = useParams()
 
   const { addToCart, removeFromCart } = useContext(CartContext)
-  const [items, setItems] = useState();
+  
   
   
   const db = getFirestore()
@@ -26,7 +26,7 @@ const ItemDetail = () => {
     })
   }
   
-  const selectItem = itemId.find(product => product.id === itemId)
+  const selectItem = items.find(product => product.id === itemId)
 
 
   return (

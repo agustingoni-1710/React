@@ -31,7 +31,6 @@ const Navbar = () => {
         </li>
 
         <li>
-        {/* Los eventos onMouseEnter y onMouseLeave se utilizan en conjunto para mostrar y ocultar el menú desplegable del carrito. */}
           <div
             className="cart-dropdown-wrapper"
             onMouseEnter={handleMouseEnter}
