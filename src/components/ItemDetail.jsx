@@ -21,9 +21,17 @@ const ItemDetail = () => {
     getDocs(caps).then((snapshot) => {
       if(snapshot === 0){
         console.log("No hay resultados")
+      }else{
+        const lista = snapshot.docs.map((producto)=>{
+          return{
+            id: producto.id, ...producto.data()
+          }
+        })
+        setItems(lista)
       }
-      setItems(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data()})))
     })
+      
+    
   
   
   const selectItem = items.find(product => product.id === itemsId)

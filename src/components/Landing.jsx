@@ -7,7 +7,7 @@ import { collection, getDocs, getFirestore} from 'firebase/firestore'
 
 const Landing = () => {
   const { addToCart, removeFromCart } = useContext(CartContext);
-  const [items, setItems] = useState();
+  const [items, setItems] = useState([]);
 
 
   useEffect(() => {
@@ -17,8 +17,15 @@ const Landing = () => {
     getDocs(caps).then((snapshot) => {
       if(snapshot === 0){
         console.log("No hay resultados")
+      }else{
+        const lista = snapshot.docs.map((producto)=>{
+          return{
+            id: producto.id, ...producto.data()
+          }
+        })
+        setItems(lista)
       }    
-    setItems(snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()})))
+    /* setItems(snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}))) */
     })
 
   }, [])
@@ -42,6 +49,7 @@ const Landing = () => {
  /* console.log(items); */
 
   return (
+    //<></>
     <div>
       <h1 style={{ textAlign: 'center' }}>Bienvenidos a MDQcaps</h1>
 

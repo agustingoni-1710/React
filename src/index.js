@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom/client';
 /* import App from './App'; */
 
 import { initializeApp } from "firebase/app";
-import Landing from './components/Landing';
+import App from './App';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCIo35DpP_-zq1bmo3jUuQu6MgEsScYaRA",
@@ -25,7 +25,7 @@ root.render(
   <React.StrictMode>
 
     
-      <Landing />
+      <App/>
   
   </React.StrictMode>
 );

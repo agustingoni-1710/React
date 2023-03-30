@@ -1,9 +1,9 @@
 
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
-import Home from "./components/Landing";
+import Landing from "./components/Landing";
 import ItemDetail from "./components/ItemDetail";
-import NavbarPage from "./components/Navbar";
+import Navbar from "./components/Navbar";
 import CartProvider from "./Context/CartContext";
 
 function App() {
@@ -12,10 +12,10 @@ function App() {
     <CartProvider>
       <BrowserRouter>
 
-        <NavbarPage />
+        <Navbar />
         
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/" element={<Landing />} />
           <Route exact path="/item/:itemId" element={<ItemDetail />} />
         </Routes>
 
