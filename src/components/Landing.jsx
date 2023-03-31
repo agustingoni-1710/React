@@ -25,28 +25,13 @@ const Landing = () => {
         })
         setItems(lista)
       }    
-    /* setItems(snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}))) */
+    
     })
 
   }, [])
-  /* useEffect(() => {
-    const db = getFirestore()
+  
 
-    const caps = query(
-      collection(db, 'items'),
-      where('Stock', '>=', 1), 
-      where ('Categoria','==','Snapback NBA')
-    )
-
-    getDocs(caps).then((snapshot) => {
-      if(snapshot === 0){
-        console.log("No hay resultados")
-      }
-      setItems(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data()})))
-    })
-  }, []) */
-
- /* console.log(items); */
+ console.log(items);
 
   return (
     //<></>

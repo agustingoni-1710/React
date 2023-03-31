@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-/* import App from './App'; */
+
 
 import { initializeApp } from "firebase/app";
 import App from './App';
